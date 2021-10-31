@@ -22,12 +22,12 @@ library(scales)
 library(data.table)
 library(stringr)
 
+# dataset tokyo
 
 # Carregando dados: atlestas, tecnicos, 
 athletes <- read.csv2("olimp/Athletes.csv")
 coaches <- read.csv2("olimp/Coaches.csv")
-# tabela de detalhes sobre o esporte e numero de atletas femininos e masculinos
-entriesGender <- read.csv2("olimp/EntriesGender.csv")
+entriesGender <- read.csv2("olimp/EntriesGender.csv") # tabela de detalhes sobre o esporte e numero de atletas femininos e masculinos
 medals <- read.csv2("olimp/Medals.csv")
 teams <- read.csv2("olimp/Teams.csv")
 
@@ -59,8 +59,20 @@ View(coaches)
 
 # ideias
 
-# exibir medalhas por pais
+# exibir medalhas por pais?
 # Como usar o grafo?
+# Exibir medalhistas dos paises de acordo com sexo. Paises com mais medalhas femininas poe ex
 
+
+
+# -----------------------------------------------------------------------------
+# dataset spotify
+
+
+spotify <- read.csv2("spotify.csv")
+View(spotify)
+
+
+# ideias
 
 
