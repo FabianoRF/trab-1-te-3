@@ -20,26 +20,47 @@ library(dplyr)
 library(ggplot2)
 library(scales)
 library(data.table)
+library(stringr)
 
 
 # Carregando dados: atlestas, tecnicos, 
 athletes <- read.csv2("olimp/Athletes.csv")
-coaches <- read.csv2("Coaches.csv")
+coaches <- read.csv2("olimp/Coaches.csv")
 # tabela de detalhes sobre o esporte e numero de atletas femininos e masculinos
-entriesGender <- read.csv2("EntriesGender.csv")
-medals <- read.csv2("Medals.csv")
-teams <- read.csv2("Teams.csv")
+entriesGender <- read.csv2("olimp/EntriesGender.csv")
+medals <- read.csv2("olimp/Medals.csv")
+teams <- read.csv2("olimp/Teams.csv")
 
 # Exibindo os dados
 
-head(athletes)
-head(coaches)
-head(entriesGender)
-head(medals)
-head(teams)
+View(athletes)
+View(coaches)
+View(entriesGender)
+View(medals)
+View(teams)
+
+
+# pré-processamento
+# strings vazias, espaços em branco
+coaches$Event = str_replace_all(coaches$Event, "^$", "_")
+coaches$Name = str_replace_all(coaches$Name, "\\s", "_")
+coaches$NOC = str_replace_all(coaches$NOC, "\\s", "_")
+athletes$NOC = str_replace_all(athletes$NOC, "\\s", "_")
+athletes$Discipline = str_replace_all(athletes$Discipline, "\\s", "_")
+athletes$Name = str_replace_all(athletes$Name, "^$", "_")
+
+
+View(coaches)
 
 
 
+
+
+
+# ideias
+
+# exibir medalhas por pais
+# Como usar o grafo?
 
 
 
