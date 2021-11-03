@@ -54,7 +54,23 @@ athletes$Name = str_replace_all(athletes$Name, "^$", "_")
 
 
 
+# pilotos com mais pole positions, mais voltas rapidas
 
+# 
+
+
+
+p_plm <- ggplot(plm, aes(x = (Month), y = AverageTemperature, color = as.factor(Year))) +
+  geom_smooth(se = FALSE,fill = NA, size = 2) +
+  theme_light(base_size = 20) +
+  xlab("Mês")+
+  ylab("Temperatura Média") +
+  scale_color_discrete("") +
+  ggtitle("Temperatura Média ao longo dos anos em Palmas") +
+  theme(plot.title = element_text(size = 18))
+
+
+p_plm
 
 
 
