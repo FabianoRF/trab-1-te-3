@@ -21,6 +21,7 @@ library(scales)
 library(data.table)
 library(stringr)
 
+
 # dataset f1
 
 # Carregando dados
@@ -54,28 +55,34 @@ athletes$Name = str_replace_all(athletes$Name, "^$", "_")
 
 
 
-# pilotos com mais pole positions, mais voltas rapidas
+# top 10 pilotos com mais vitorias
 
-# 
+driverWins <- read.table("f1_selects/driverWins2.csv", sep=",", header=TRUE)
+
+View(driverWins)
 
 
 
-p_plm <- ggplot(plm, aes(x = (Month), y = AverageTemperature, color = as.factor(Year))) +
-  geom_smooth(se = FALSE,fill = NA, size = 2) +
+p_driverWins <- plot(driverWins$forename, driverWins$countWins) +
+       xlab("Nome")+
+       ylab("Vitórias")
+
+p_driverWins <- ggplot(driverWins, aes(x = (forename), y = countWins, color = as.factor(driverId))) +
   theme_light(base_size = 20) +
-  xlab("Mês")+
-  ylab("Temperatura Média") +
+  xlab("Nome")+
+  ylab("Vitórias") +
   scale_color_discrete("") +
-  ggtitle("Temperatura Média ao longo dos anos em Palmas") +
+  ggtitle("Pilotos com mais vitorias") +
   theme(plot.title = element_text(size = 18))
 
 
-p_plm
+p_driverWins
 
 
 
 # ideias
 # -----------------------------------------------------------------------------
+# pilotos com mais vitorias x
 # pilotos com mais pole positions, mais voltas rapidas
 # piloto com mais vitorias/podios
 # paises com mais vitorias/voltas rapidas
