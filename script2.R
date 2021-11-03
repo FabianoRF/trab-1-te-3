@@ -89,6 +89,9 @@ p_driverWins
 # equipes mais vitoriosas, ou mais rápidas
 # -----------------------------------------------------------------------------
 
-
+# SELECT ds.driverId, dc.forename, dc.surname ,count(ds.wins) as countWins from te3.driver_standings ds 
+#left join te3.drivers_csv dc on dc.driverId = ds.driverId 
+#group by ds.driverId 
+#order by countWins DESC limit 10;
 
 
